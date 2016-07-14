@@ -13,15 +13,15 @@ public class PersonaService {
     private PersonaRepository personaRepository;
 
     public void testPersonas(){
+
         Persona persona = new Persona();
         persona.setNombre("Ivan");
         persona.setEdad(23);
-        persona.setApellido("");
+        persona.setApellido("Lopez");
         personaRepository.save(persona);
 
         Persona persona2 = new Persona();
         persona2.setNombre("Dimple");
-        persona2.setApellido("Rachmadhani");
         persona2.setEdad(26);
         personaRepository.save(persona2);
 
@@ -41,9 +41,13 @@ public class PersonaService {
         persona5.setEdad(25);
         personaRepository.save(persona5);
 
+        System.out.println("Persona con ID 2");
         System.out.println(personaRepository.findOne(2L));
+        System.out.println("Persona con nombre Noelia");
         System.out.println(personaRepository.findByNombre("Noelia"));
+        System.out.println("Personas mayores de 25");
         System.out.println(personaRepository.findByEdadGreaterThanEqual(25));
+        System.out.println("Personas con nombre Noelia y apellido Villa");
         System.out.println(personaRepository.findByNombreAndApellido("Noelia","Villa"));
 
 
